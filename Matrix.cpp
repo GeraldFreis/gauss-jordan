@@ -40,7 +40,6 @@ int Matrix::getEntry(int x, int y){
 };
 
 void Matrix::printElements(){
-
 	for(int i = 0; i < rows; i++){
 		for(int j = 0; j < columns; j++){
 			std::cout << user_matrix[i][j] << " ";
@@ -73,12 +72,12 @@ int *Matrix::getColumn(int column_number){
 void Matrix::swapRow(int row_1, int row_2){
 	// iterate across the first row, store all values in a temporary array, make all values the second row
 	// iterate across second row, and make second row equal to temporary array values
-	if((row_1 > 0 && row_1 < rows) && (row_2 > 0 && row_2 < rows)){
+	if((row_1-1 >= 0 && row_1 < rows) && (row_2-1 >= 0 && row_2 < rows)){
 		int temporary_value = 0; 
 		for(int i = 0; i < columns; i++){
-			temporary_value = user_matrix[row_1][i];
-			user_matrix[row_1][i] = user_matrix[row_2][i];
-			user_matrix[row_2][i] = temporary_value;
+			temporary_value = user_matrix[row_1-1][i];
+			user_matrix[row_1-1][i] = user_matrix[row_2-1][i];
+			user_matrix[row_2-1][i] = temporary_value;
 		}
 	}
 	else {
@@ -86,25 +85,28 @@ void Matrix::swapRow(int row_1, int row_2){
 	}
 
 };
-void Matrix::addMultiple(int row_1, int row_2, int scalar){
-	int value = 0;
-	for(int i = 0; i < columns; i++){
-		value = scalar * user_matrix[row_1][i];
-		user_matrix[row_2][i] += value;
+void Matrix::addMultiple(int row_to_add, int row_to_receive, int scalar){
+	if(row_to_add-1 >= 0 && row_to_add <= rows && row_to_receive-1>=0 && row_to_receive <= rows){
+		int value = 0;
+		for(int i = 0; i < columns; i++){
+			value = scalar * user_matrix[row_to_add-1][i];
+			user_matrix[row_to_receive-1][i] += value;
+		}
 	}
 };
 
-void Matrix::takeMultiple(int row_1, int row_2, int scalar){
-	int value = 0;
-	for(int i = 0; i < columns; i++){
-		value = scalar * user_matrix[row_1][i];
-		user_matrix[row_2][i] -= value;
+void Matrix::takeMultiple(int row_to_subtract, int row_to_receive, int scalar){
+	if(row_to_subtract-1 >= 0 && row_to_subtract <= rows && row_to_receive-1>=0 && row_to_receive <= rows){
+		int value = 0;
+		for(int i = 0; i < columns; i++){
+			value = scalar * user_matrix[row_to_subtract-1][i];
+			user_matrix[row_to_receive-1][i] -= value;
+		}
 	}
 };
 
 Matrix::Matrix(std::vector<int> m, std::string dim){
-	int rows = dim.at(0) - '0'; int columns = dim.at(2) - '0';
-	std::cout << rows << " " << columns;
+	rows = dim.at(0) - '0'; columns = dim.at(2) - '0';
 	if(rows > 1 && columns > 1){
 		user_matrix = new int*[rows];
 		for(int i = 0; i < rows; i++){
@@ -116,9 +118,9 @@ Matrix::Matrix(std::vector<int> m, std::string dim){
 		int counter_r = 0; int counter_c = 0; int vector_counter = 0;
 		for(auto a: m){
 			user_matrix[counter_r][counter_c] = a;
-			vector_counter++;
-
-			if(vector_counter == columns-1){
+			// std::cout << a << " " << counter_r << " " << counter_c << "\n";
+			vector_counter++; counter_c++;
+			if(counter_c % (columns) == 0){
 				counter_r++;
 				counter_c = 0;
 			}			
@@ -126,6 +128,9 @@ Matrix::Matrix(std::vector<int> m, std::string dim){
 	}
 	else {
 		std::cout << "matrix is not a matrix" << "\n";
-		// user_matrix = new int*[100];
+		user_matrix = new int*[10];
+		for(int i = 0; i < 10; i++){
+			user_matrix[i] = new int[10];
+		}
 	}
 };

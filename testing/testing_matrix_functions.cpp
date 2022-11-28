@@ -21,6 +21,20 @@ int main(){
     //     std::cout << a << " ";
     // }
     Matrix ma(numbers, raw_dimensions);
-    // ma.printElements();
+    ma.printElements();
+
+    std::cout << "\n";
+    // testing the add multiple functions
+    ma.addMultiple(1,2,3);
+    ma.printElements();
+
+    std::cout << "\n";
+    
+    // testing the take multiple functions
+    ma.takeMultiple(1,2,3);
+    ma.printElements();
+    std::cout << "\n";
+    ma.swapRow(2,1);
+    ma.printElements();
     return 0;
 }
