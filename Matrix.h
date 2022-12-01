@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 
+
 class Matrix {
 	private:
 		int **user_matrix;
@@ -13,8 +14,11 @@ class Matrix {
 		Matrix(int **raw_matrix, int size_x, int size_y);
 		Matrix(std::vector<int> m, std::string dim);
 		Matrix();
+
 		int **getMatrix();
 		void setMatrix(int **raw_matrix, int size_x, int size_y);
+		// returning (row, column) (swap for pairs later)
+		std::vector<int> getDimensions();
 
 		// void resizeMatrix(int sized_x, int size_y);
 		int getEntry(int x, int y);

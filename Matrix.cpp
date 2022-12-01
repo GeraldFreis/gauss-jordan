@@ -20,7 +20,7 @@ Matrix::Matrix(){
 	for(int i = 0; i < 0; i++){
 		user_matrix[i] = new int[10];
 	}
-	
+
 	rows = 10; columns = 10;
 }
 
@@ -40,6 +40,10 @@ void Matrix::setMatrix(int **raw_matrix, int size_x, int size_y){
 	rows = size_x;
 	columns = size_y;
 };
+
+std::vector<int> Matrix::getDimensions(){
+	return std::vector<int> ({rows, columns});
+}
 
 
 int Matrix::getEntry(int x, int y){
@@ -111,6 +115,8 @@ void Matrix::takeMultiple(int row_to_subtract, int row_to_receive, int scalar){
 		}
 	}
 };
+
+
 
 Matrix::Matrix(std::vector<int> m, std::string dim){
 	rows = dim.at(0) - '0'; columns = dim.at(2) - '0';
