@@ -5,5 +5,5 @@ GaussJordan::GaussJordan(Matrix m){
 };
 
 void GaussJordan::solve(){
-
+    
 }
