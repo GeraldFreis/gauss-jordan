@@ -10,9 +10,13 @@ private:
 	Matrix user_matrix;
 	std::queue<std::string> commands;
 
+	void reduceColumn(int column_number, int pivot, int i);
+	bool isReduced();
+
 public:
 	GaussJordan(Matrix m);
 	void solve();
+	void printCommands();
 };
 
 #endif

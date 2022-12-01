@@ -62,7 +62,7 @@ void Matrix::printElements(){
 int *Matrix::getRow(int row_number){
 	int *row = new int[columns];
 	for(int i = 0; i < columns; i++){
-		row[i] = user_matrix[row_number][i];
+		row[i] = user_matrix[row_number-1][i];
 	}
 	return row;
 };
