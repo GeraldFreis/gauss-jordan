@@ -13,8 +13,6 @@ private:
 public:
 	GaussJordan(Matrix m);
 	void solve();
-	Matrix getMatrix();
-	Matrix setMatrix(Matrix m);
 };
 
 #endif

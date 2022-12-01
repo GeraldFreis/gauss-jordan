@@ -14,6 +14,16 @@ Matrix::Matrix(int **raw_matrix, int size_x, int size_y){
 	columns = size_y;
 }
 
+Matrix::Matrix(){
+	user_matrix = new int*[10];
+
+	for(int i = 0; i < 0; i++){
+		user_matrix[i] = new int[10];
+	}
+	
+	rows = 10; columns = 10;
+}
+
 int **Matrix::getMatrix(){
 	return user_matrix;
 };
@@ -31,9 +41,6 @@ void Matrix::setMatrix(int **raw_matrix, int size_x, int size_y){
 	columns = size_y;
 };
 
-void Matrix::resizeMatrix(int sized_x, int size_y){
-
-};
 
 int Matrix::getEntry(int x, int y){
 	return user_matrix[x][y];

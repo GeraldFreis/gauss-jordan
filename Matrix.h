@@ -12,10 +12,11 @@ class Matrix {
 	public:
 		Matrix(int **raw_matrix, int size_x, int size_y);
 		Matrix(std::vector<int> m, std::string dim);
+		Matrix();
 		int **getMatrix();
 		void setMatrix(int **raw_matrix, int size_x, int size_y);
 
-		void resizeMatrix(int sized_x, int size_y);
+		// void resizeMatrix(int sized_x, int size_y);
 		int getEntry(int x, int y);
 		void printElements();
 
