@@ -4,6 +4,7 @@
 #include "Matrix.h"
 #include <queue>
 #include <string>
+#include <vector>
 
 class GaussJordan {
 private:
@@ -12,11 +13,13 @@ private:
 
 	void reduceColumn(int column_number, int pivot, int i);
 	bool isReduced();
+	void testCombination(std::vector<std::string> current_combination);
 
 public:
 	GaussJordan(Matrix m);
 	void solve();
 	void printCommands();
+	void printMatrix();
 };
 
 #endif

@@ -17,3 +17,4 @@ std::vector<std::vector<std::string>> Combinations(int depth){
     }
     return all_combinations;
 }
+

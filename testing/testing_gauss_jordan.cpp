@@ -21,4 +21,5 @@ int main(){
     GaussJordan GJ(m);
     GJ.solve();
     GJ.printCommands();
+    GJ.printMatrix();
 }
