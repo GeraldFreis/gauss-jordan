@@ -1,4 +1,5 @@
 testingGaussJordan: GaussJordan
+	clear
 	./GaussJordan
 
 GaussJordan: combinations.cpp Gauss_Jordan.h Gauss_Jordan.cpp main.cpp Matrix.cpp Matrix.h Parser.cpp
