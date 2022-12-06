@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Matrix.h"
+#include "Solver.h"
 extern std::vector<int> string_to_numbers(std::string raw_input);
 
 int main(){
@@ -14,5 +15,10 @@ int main(){
     std::vector<int> numbers = string_to_numbers(raw_input);
 
     Matrix m(numbers, raw_dimensions);
-    m.printElements();
+
+    std::cout << "\n";
+    Solver s(m);
+    s.solve();
+    s.printSteps();
+    // s.printMatrix();
 }

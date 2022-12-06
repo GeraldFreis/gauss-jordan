@@ -11,6 +11,9 @@ class Solver {
         Matrix m; int rows; int columns;
         std::queue<std::string> commands;
 
+        bool isReduced();
+        void reduceColumns();
+
     public:
         Solver(Matrix _m){
             m = _m; 
@@ -19,6 +22,7 @@ class Solver {
         }
 
         void solve();
+        void printSteps();
         void printMatrix();
 };
 

@@ -60,15 +60,17 @@ void Matrix::printElements(){
 };
 
 int *Matrix::getRow(int row_number){
-	int *row = new int[columns];
-	for(int i = 0; i < columns; i++){
-		row[i] = user_matrix[row_number-1][i];
-	}
-	return row;
+	if(row_number<rows){
+		int *row = new int[columns];
+		for(int i = 0; i < columns; i++){
+			row[i] = user_matrix[row_number][i];
+		}
+		return row;
+	} return nullptr;
 };
 
 int *Matrix::getColumn(int column_number){
-	if(column_number > 0){
+	if(column_number >= 0){
 		int *column = new int[rows];
 		for(int i = 0; i < rows; i++){
 			column[i] = user_matrix[i][column_number];
@@ -97,21 +99,21 @@ void Matrix::swapRow(int row_1, int row_2){
 
 };
 void Matrix::addMultiple(int row_to_add, int row_to_receive, int scalar){
-	if(row_to_add-1 >= 0 && row_to_add <= rows && row_to_receive-1>=0 && row_to_receive <= rows){
+	if(row_to_add >= 0 && row_to_add <= rows && row_to_receive>=0 && row_to_receive <= rows){
 		int value = 0;
 		for(int i = 0; i < columns; i++){
-			value = scalar * user_matrix[row_to_add-1][i];
-			user_matrix[row_to_receive-1][i] += value;
+			value = scalar * user_matrix[row_to_add][i];
+			user_matrix[row_to_receive][i] += value;
 		}
 	}
 };
 
 void Matrix::takeMultiple(int row_to_subtract, int row_to_receive, int scalar){
-	if(row_to_subtract-1 >= 0 && row_to_subtract <= rows && row_to_receive-1>=0 && row_to_receive <= rows){
+	if(row_to_subtract >= 0 && row_to_subtract <= rows && row_to_receive>=0 && row_to_receive <= rows){
 		int value = 0;
 		for(int i = 0; i < columns; i++){
-			value = scalar * user_matrix[row_to_subtract-1][i];
-			user_matrix[row_to_receive-1][i] -= value;
+			value = scalar * user_matrix[row_to_subtract][i];
+			user_matrix[row_to_receive][i] -= value;
 		}
 	}
 };

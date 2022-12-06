@@ -29,7 +29,7 @@ class Matrix {
 		void swapRow(int row_1, int row_2);
 		void addMultiple(int row_to_add, int row_to_receive, int scalar);
 		void takeMultiple(int row_to_subtract, int row_to_receive, int scalar);
-		~Matrix(){for(int i = 0; i < rows; i++){delete [] user_matrix[i];}}
+		// ~Matrix(){for(int i = 0; i < rows; i++){delete [] user_matrix;}}
 };
 
 
