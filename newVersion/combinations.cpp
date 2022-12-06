@@ -4,7 +4,7 @@
 #include <random>
 
 std::vector<std::vector<std::string>> Combinations(int depth){
-    std::vector<std::string> possibilities({"AM", "SM", "I"});
+    std::vector<std::string> possibilities({"AM", "AD", "I"});
     std::vector<std::vector<std::string>> all_combinations;
 
     for(int i = 0; i < 1000; i++){

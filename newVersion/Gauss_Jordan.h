@@ -9,11 +9,12 @@
 class GaussJordan {
 private:
 	Matrix user_matrix;
+	int rows;
+	int columns;
 	std::queue<std::string> commands;
 
-	void reduceColumn(int column_number, int pivot, int i);
 	bool isReduced();
-	void testCombination(std::vector<std::string> current_combination);
+	bool checkCombination(std::vector<std::string> current_combination);
 
 public:
 	GaussJordan(Matrix m);
