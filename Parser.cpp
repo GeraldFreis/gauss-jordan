@@ -7,7 +7,7 @@ std::string get_numbers(std::string input){
         std::string number; char currentchar = input.at(0);
         int counter = 0;
 
-        while(currentchar != ' ' && currentchar >= '0' && currentchar <= '9'){
+        while((currentchar != ' ' && currentchar >= '0' && currentchar <= '9') || currentchar=='-'){
             number = number + currentchar;
             counter++;
             currentchar = input.at(counter);
