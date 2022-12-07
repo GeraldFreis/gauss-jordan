@@ -14,10 +14,11 @@ int main(){
     std::getline(std::cin, raw_input, '\n');
 
     std::vector<int> numbers = string_to_numbers(raw_input);
+    if(numbers.size() > 2){
+        Matrix m_1(numbers, raw_dimensions);
 
-    Matrix m_1(numbers, raw_dimensions);
-
-    std::cout << "\n";
-    Solver s_1(m_1);
-    s_1.solve();
+        std::cout << "\n";
+        Solver s_1(m_1);
+        s_1.solve();
+    }
 }

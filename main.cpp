@@ -6,14 +6,6 @@ extern std::vector<int> string_to_numbers(std::string raw_input);
 extern std::vector<std::string> ReadingFile();
 
 int main(){
-    // std::string raw_dimensions, raw_input;
-    // std::cout << "What are the dimensions of the matrix?: (rows,columns)"  << "\n";
-    // std::getline(std::cin, raw_dimensions, '\n');
-
-
-    // std::cout << "Please enter the elements of the matrix row by row in a line: " << "\n";
-    // std::getline(std::cin, raw_input, '\n');
-
 
     std::string raw_dimensions, raw_input;
     raw_dimensions = ReadingFile().at(0); raw_input = ReadingFile().at(1);
@@ -25,8 +17,7 @@ int main(){
     std::cout << "\n";
     Solver s_1(m_1);
     s_1.solve();
-    // s.printSteps();
-    // s.printMatrix();
+
     std::cout << std::endl;
 
     raw_dimensions = ReadingFile().at(2); raw_input = ReadingFile().at(3);
