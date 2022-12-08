@@ -9,7 +9,7 @@ int main(){
 
     std::string raw_dimensions, raw_input;
     raw_dimensions = ReadingFile().at(0); raw_input = ReadingFile().at(1);
-
+    
     std::vector<int> numbers = string_to_numbers(raw_input);
 
     Matrix m_1(numbers, raw_dimensions);
